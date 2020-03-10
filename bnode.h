@@ -8,7 +8,7 @@
  * Author: Br. Helfrich
  ****************************************************/
 template <class T>
-int BinaryNode <T> :: findDepth() const
+int BNode <T> :: findDepth() const
 {
    // if there are no children, the depth is ourselves
    if (pRight == NULL && pLeft == NULL)
@@ -27,7 +27,7 @@ int BinaryNode <T> :: findDepth() const
  * Author: Br. Helfrich
  ***************************************************/
 template <class T>
-void BinaryNode <T> :: verifyRedBlack(int depth) const
+void BNode <T> :: verifyRedBlack(int depth) const
 {
    depth -= (isRed == false) ? 1 : 0;
 
@@ -62,7 +62,7 @@ void BinaryNode <T> :: verifyRedBlack(int depth) const
  * Author: Br. Helfrich
  ******************************************************/
 template <class T>
-void BinaryNode <T> :: verifyBTree() const
+void BNode <T> :: verifyBTree() const
 {
    // check parent
    if (pParent)

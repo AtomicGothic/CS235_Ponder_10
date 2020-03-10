@@ -1,11 +1,11 @@
 ###############################################################
 # Program:
 #     Assignment 10, Map
-#     Brother XXXXX, CS 235
+#     Brother JonesL, CS 235
 # Author:
-#     <your name here>
+#     Adam Goff, Aaron Rook, Martin Melerio, Tanner Stratford, Allan Marina
 # Summary:
-#     <put a descriptoin here>
+#     Our own custom map data structure.
 # Time:
 #     <how long did it take to complete this program?>
 ###############################################################
