@@ -13,13 +13,12 @@
 #include "bst.h"
 #include "pair.h"
 
-namespace custom
-{
+
 template <class K, class V>
-class map 
+class map
 {
 private:
-	BST bst;
+	BST<pair<K, V>>* bst;
 
 public:
 	//DEFAULT CONSTRUCTOR
@@ -64,7 +63,7 @@ public:
 * INSERT
 **************************************************************************/
 template<class K, class V>
-void map<K, V>::insert(const pair<K, V>& input)
+void insert(const pair<K, V>& input)
 {
 	map<K, V>::iterator it = bst.find(input);
 
@@ -76,8 +75,6 @@ void map<K, V>::insert(const pair<K, V>& input)
 	{
 		bst.insert(input);
 	}
-}
-
 } // namespace custom
 
 

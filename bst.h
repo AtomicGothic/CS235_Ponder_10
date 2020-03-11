@@ -34,9 +34,9 @@ class BST
 public:
     // constructors, destructor, assignment operator
     BST() : root(NULL) { }
-    BST(const BST& rhs) throw (const char*);
+    BST(const BST& rhs);
     ~BST() { clear(); }
-    BST& operator = (const BST& rhs) throw (const char*);
+    BST& operator = (const BST& rhs);
 
     // standard container interfaces
     bool empty() const { return root == NULL; }
@@ -56,7 +56,7 @@ public:
     iterator rend() { return iterator(NULL); }
 
     // BST specific interfaces
-    void insert(const T& t) throw (const char*);
+    void insert(const T& t);
     void remove(iterator& it);
     iterator find(const T& t);
 
@@ -69,7 +69,7 @@ private:
     void deleteNode(BNode*& pDelete, bool toRight);
     void deleteBinaryTree(BNode*& pDelete);
     void copyBinaryTree(const BNode* pSrc,
-        BNode* pDest) throw (const char*);
+        BNode* pDest);
 
     BNode* root;
 };
@@ -103,8 +103,8 @@ public:
     void addRight(BNode* pNode);
 
     // create a node and add it to the left/right
-    void addLeft(const T& t) throw (const char*);
-    void addRight(const T& t) throw (const char*);
+    void addLeft(const T& t);
+    void addRight(const T& t);
 
     // is the passed node our right child?
     bool isRightChild(BNode* pNode) const { return pRight == pNode; }
@@ -164,7 +164,7 @@ void BST <T> ::BNode::addRight(BNode* pNode)
 * Add a node to the left of the current node
 ******************************************************/
 template <class T>
-void BST <T> ::BNode::addLeft(const T& t) throw (const char*)
+void BST <T> ::BNode::addLeft(const T& t)
 {
     assert(pLeft == NULL);
     assert(!(t > data));
@@ -191,7 +191,7 @@ void BST <T> ::BNode::addLeft(const T& t) throw (const char*)
 * Add a node to the right of the current node
 ******************************************************/
 template <class T>
-void BST <T> ::BNode::addRight(const T& t) throw (const char*)
+void BST <T> ::BNode::addRight(const T& t)
 {
     assert(pRight == NULL);
     assert(t > data || t == data);
@@ -236,7 +236,7 @@ void BST <T> ::deleteBinaryTree(BNode*& pDelete)
 *********************************************/
 template <class T>
 void BST <T> ::copyBinaryTree(const BNode* pSrc,
-    BNode* pDest) throw (const char*)
+    BNode* pDest)
 {
     BNode* p = NULL;
     assert(pSrc && pDest);
@@ -620,7 +620,7 @@ typename BST <T> ::iterator BST <T> ::rbegin()
 * Copy one tree to another
 ********************************************/
 template <class T>
-BST <T> ::BST(const BST <T>& rhs) throw (const char*) : root(NULL)
+BST <T> ::BST(const BST <T>& rhs) : root(NULL)
 {
     // call the assignment operator
     *this = rhs;
@@ -631,7 +631,7 @@ BST <T> ::BST(const BST <T>& rhs) throw (const char*) : root(NULL)
 * Make a copy of a binary search tree
 **********************************************/
 template <class T>
-BST <T>& BST <T> :: operator = (const BST <T>& rhs) throw (const char*)
+BST <T>& BST <T> :: operator = (const BST <T>& rhs)
 {
     clear();
     if (rhs.root != NULL)
@@ -654,7 +654,7 @@ BST <T>& BST <T> :: operator = (const BST <T>& rhs) throw (const char*)
 * Insert a node at a given location in the tree
 ****************************************************/
 template <class T>
-void BST <T> ::insert(const T& t) throw (const char*)
+void BST <T> ::insert(const T& t)
 {
     try
     {
