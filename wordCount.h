@@ -17,6 +17,8 @@
  * user for words to get the count from
  *****************************************************/
 void wordCount();
+string promptFile();
+void readFile(map <string, Count> & counts, const string & fileName, string word);
 
 #endif // WORD_COUNT_H
 

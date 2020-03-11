@@ -47,8 +47,8 @@ public:
 	//SPECIFIC CONTAINER INTERFACES
 	void insert(const pair <K, V>& input);
 	void insert(const K& k, const V& v);
-	map& operator [] (const K& k);
-	map &operator [] (const K& k) const;
+	map& operator [] (const K& k) { return bst.find(k).data; }
+	map &operator [] (const K& k) const { return bst.find(k).data; }
 
 	//ITERATOR CLASS FOR MAP
 	class iterator;
@@ -57,7 +57,10 @@ public:
 	iterator end();
 
 
+
+
 };
+
 
 /*************************************************************************
 * INSERT
