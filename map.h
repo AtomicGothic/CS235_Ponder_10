@@ -66,15 +66,15 @@ public:
 template<class K, class V>
 void map<K, V>::insert(const pair<K, V>& input)
 {
-	BST<T> iterator it = bst.find(pair);
+	map<K, V>::iterator it = bst.find(input);
 
 	if (it != NULL)
 	{
-		*it = pair;
+		*it = input;
 	}
 	else
 	{
-		bst.insert(pair);
+		bst.insert(input);
 	}
 }
 

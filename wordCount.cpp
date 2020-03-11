@@ -11,7 +11,7 @@
 #include "map.h"       // for MAP
 #include "wordCount.h" // for wordCount() prototype
 using namespace std;
-void readFile(map <string, Count> & counts, const string & fileName);
+//void readFile(map <string, Count> & counts, const string & fileName);
 
 /*****************************************************
  * WORD COUNT
