@@ -19,9 +19,10 @@ using namespace std;
  * Prompt the user for a file to read, then prompt the
  * user for words to get the count from
  *****************************************************/
+
 void wordCount()
 {
-    string filename = promptFile();
+ /*   string filename = promptFile();
     cout >> "What word whose frequency is to be found. Type ! when done" << endl;
     map<string,int> counts;
     while (cin != "!") {
@@ -29,9 +30,9 @@ void wordCount()
         cin >> word;
         readFile(counts,filename,word);
     }
-
+*/
 }
-
+/*
 void readFile(map <string, Count> & counts, const string & filename, string word) {
     ifstream filestream;
     filestream.open(filename);
@@ -50,6 +51,7 @@ void readFile(map <string, Count> & counts, const string & filename, string word
     }
 
 }
+*/
 
 string promptFile() {
     cout << "What is the filename to be counted? ";
@@ -58,3 +60,4 @@ string promptFile() {
 
     return filename;
 }
+

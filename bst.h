@@ -20,6 +20,7 @@
 #endif // !debug
 
 #include <cassert>
+#include <cstddef>
 
 namespace custom
 {
