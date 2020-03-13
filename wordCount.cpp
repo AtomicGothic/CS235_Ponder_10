@@ -3,7 +3,7 @@
  *    Week 10, WORD COUNT
  *    Brother Helfrich, CS 235
  * Author:
- *    <your name here>
+ *    Adam Goff, Aaron Rook, Martin Melerio, Tanner Stratford, Allan Marina
  * Summary:
  *    This program will implement the wordCount() function
  ************************************************************************/
@@ -13,8 +13,6 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-using namespace std;
-//void readFile(map <string, Count> & counts, const string & fileName,);
 
 /*****************************************************
  * WORD COUNT
@@ -24,93 +22,60 @@ using namespace std;
 
 void wordCount()
 {
- 
-    //Declare an input variable
-    string fileName;
+    map<string, int> mappedWords;
 
     //Prompt for file
-    cout << "What is the filename to be counted? ";
+    std::string fileName;
+    std::cout << "What is the filename to be counted? ";
+    
     //get file
-    cin >> fileName;
+    std::cin >> fileName;
+    
+    //Did we get and read the file?
+    bool fileRead = readFile(mappedWords, fileName);
 
-    //declare input file stream variable
-    ifstream fin;
-    fin.open("fileName");
-    //Check if file was able to open
-    if (fin.fail())
+    if (fileRead)
     {
-        //In case file does NOT open:
-        cout << "Unable to open file " << fileName << endl;
-    }
+        std::cout << "What word whose frequency is to be found. Type ! when done\n";
+        std::string userResponse;
 
-    map<string, int> count;
-    int num;
-    string key;
-    while (fin >> key >> num)
-    {
-        count[key] = num;
-    }
+        while (userResponse != "!")
+        {
+            std::cout << "> ";
+            std::cin >> userResponse;
 
-
-    //Close file
-    fin.close();
-
-
-
-    cout << "What word whose frquency is to be found. Type ! when done\n";
-    //Note from Linux lab testBed:
-    /*  There are 1345 words in this file, most of which have duplicates.
-        This means there should be a few hundred nodes. The depth of the tree
-        should be about 8. This means searching for a word should take, on average
-        7 or 8 compares. That should be very fast. */
-    map<string, int>::iterator it;
-    for (it = count.begin(); it != count.end(); it++)
-    {
-        
-    }
-
-
-
-
-
-
-
- /*   string filename = promptFile();
-    cout >> "What word whose frequency is to be found. Type ! when done" << endl;
-    map<string,int> counts;
-    while (cin != "!") {
-        string word;
-        cin >> word;
-        readFile(counts,filename,word);
-    }
-*/
-}
-/*
-void readFile(map <string, Count> & counts, const string & filename, string word) {
-    ifstream filestream;
-    filestream.open(filename);
-    // while we have input, either add the 
-    string fileInput;
-    while (filestream >> fileInput) {
-        if (fileInput == word) {
-            if (counts.find(word != NULL)) {
-                counts.find(word).data++;
-            }
-            else {
-                pair<string,int> initialCount = {word,1};
-                counts.insert(intialCount);
+            if (userResponse != "!")
+            {
+                std::cout << "\t" << userResponse << " : " << mappedWords[userResponse] << std::endl;
             }
         }
     }
+    else
+    {
+        std::cout << "Error: Unable to open" << fileName << std::endl;
+    }
 
 }
-*/
+   
+bool readFile(map <string, int> & mappedWords, const std::string & fileName)
+{
+    ifstream fin;
+    fin.open(fileName);
+    if (fin.fail())
+    {
+        std::cout << "Error: Unable to open " << fileName << std::endl;
+        fin.close();
+        return false;
+    }
 
-/*string promptFile() {
-    cout << "What is the filename to be counted? ";
-    string filename;
-    cin >> filename;
+    std::string word;
+    while (!fin.eof() && fin >> word)
+    {
+        mappedWords[word]++;
+    }
 
-    return filename;
+    fin.close();
+    return true;
 }
-*/
+
+

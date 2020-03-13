@@ -7,7 +7,10 @@
 # Summary:
 #     Our own custom map data structure.
 # Time:
-#     <how long did it take to complete this program?>
+#     We spent collectively around 6-8 hours of work on this.
+#     Most difficult part was the getting the iteration down
+#     right for the map class, though not as hard as the 
+#     previous two assignments.
 ###############################################################
 
 ##############################################################

@@ -5,7 +5,7 @@
 *    This will contain just the prototype for the wordCount()
 *    function
 * Author
-*    <your names here>
+*    Adam Goff, Aaron Rook, Martin Melerio, Tanner Stratford, Allan Marina
 ************************************************************************/
 
 #ifndef WORD_COUNT_H
@@ -20,9 +20,7 @@
  *****************************************************/
 
 void wordCount();
-//sstring promptFile();
-/*
-void readFile(map <string, Count> & counts, const string & fileName, string word);
-*/
+bool readFile(map <string, int> & counts, const string & fileName);
+
 #endif // WORD_COUNT_H
 
